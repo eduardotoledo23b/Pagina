@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orgullo Bachilleres 3 Bonfil - Grupo 6D</title>
+    <style>
+        /* ESTILOS GENERALES */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #f0f4f3;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* COLORES Y VARIABLES */
+        :root {
+            --verde-bachilleres: #1a5e42;
+            --verde-claro: #288f65;
+            --dorado: #d4af37;
+            --blanco: #ffffff;
+            --oscuro: #222222;
+            --fondo-imagen: #e9ecef;
+        }
+
+        /* HEADER / HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 94, 66, 0.9), rgba(34, 34, 34, 0.8));
+            color: var(--blanco);
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        .badge {
+            display: inline-block;
+            background-color: var(--dorado);
+            color: var(--oscuro);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.4);
+            text-transform: uppercase;
+        }
+
+        /* SECCIONES Y CONTENEDORES */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: var(--verde-bachilleres);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* TICS Y MAESTRO JULIO CESAR */
+        .tics-banner {
+            display: flex;
+            flex-wrap: wrap;
+            background: var(--blanco);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 50px;
+        }
+        .tics-content {
+            padding: 50px;
+            flex: 1 1 500px;
+        }
+        .tics-content h2 {
+            color: var(--verde-bachilleres);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        .highlight-teacher {
+            background-color: rgba(40, 143, 101, 0.1);
+            border-left: 6px solid var(--verde-claro);
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 0 10px 10px 0;
+            font-size: 1.1rem;
+        }
+        .highlight-teacher strong {
+            color: var(--verde-bachilleres);
+        }
+        .tics-image-container {
+            flex: 1 1 400px;
+            background-color: var(--fondo-imagen);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .tics-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* GRID DE GALERÍA */
+        .gallery-category {
+            margin-bottom: 60px;
+        }
+        .category-title {
+            font-size: 2rem;
+            color: var(--oscuro);
+            border-bottom: 3px solid var(--dorado);
+            display: inline-block;
+            margin-bottom: 30px;
+            padding-bottom: 5px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            justify-content: center;
+        }
+        .gallery-item {
+            background: var(--blanco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        /* CONTENEDOR DE IMAGEN PARA QUE SALGA TODO CENTRADO */
+        .media-container {
+            width: 100%;
+            height: 350px; /* Altura fija para mantener el grid ordenado */
+            background-color: var(--fondo-imagen);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        .media-container img, .media-container video {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* EVITA QUE SE RECORTE LA FOTO */
+            border-radius: 8px;
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover .media-container img {
+            transform: scale(1.03);
+        }
+        
+        .gallery-info {
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .gallery-info h4 {
+            color: var(--verde-bachilleres);
+            margin-bottom: 8px;
+            font-size: 1.15rem;
+        }
+        .gallery-info p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .tics-content { padding: 30px; }
+            .section-title { font-size: 2.2rem; }
+            .media-container { height: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="hero">
+        <h1>Bachilleres 3 Bonfil</h1>
+        <p>Dejando nuestra huella en lo más alto. Innovación, talento y amistad.</p>
+        <div class="badge">Generación 6D - Turno Vespertino</div>
+    </header>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="section">
+        <h2 class="section-title">Nuestra Historia</h2>
+        <p class="section-subtitle">
+            A lo largo de nuestra estancia en el Colegio de Bachilleres Cancún Tres, en Alfredo V. Bonfil, hemos compartido risas, proyectos, estrés por los exámenes y momentos que se quedarán para siempre. Esta página web está diseñada para demostrar de qué estamos hechos y poner el nombre del plantel y de nuestro grupo en lo más alto.
+        </p>
+
+        <!-- SECCIÓN TICS Y PROFESOR JULIO CESAR -->
+        <div class="tics-banner">
+            <div class="tics-content">
+                <h2>El Poder de las TICS y Arduino</h2>
+                <p>Nuestra capacitación en Tecnologías de la Información y Comunicación (TICS) nos transformó. Aprendimos a programar, a crear circuitos y a dar vida a la tecnología usando hardware LAFVIN/Arduino. Implementamos sensores de humedad y diseñamos maquetas automatizadas.</p>
+                
+                <div class="highlight-teacher">
+                    <strong>Mención Honorífica:</strong> Nada de esto habría sido posible sin el apoyo incondicional de nuestro maestro <strong>Julio Cesar Hernández Ponce</strong>. Gracias por su paciencia y por inspirarnos a ser creadores de tecnología.
+                </div>
+            </div>
+            <div class="tics-image-container">
+                <img src="WhatsApp Image 2026-06-09 at 4.20.05 PM (3).jpeg" alt="Equipo en el laboratorio TICS">
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA DE RECUERDOS -->
+    <section class="section" style="padding-top: 0;">
+        <h2 class="section-title">Nuestro Trabajo y Momentos</h2>
+
+        <!-- CATEGORÍA 1: TICS, ARDUINO Y PROYECTOS -->
+        <div class="gallery-category">
+            <h3 class="category-title">💻 Proyectos, TICS y Electrónica</h3>
+            <div class="gallery-grid">
+                
+                <!-- Videos de Pruebas -->
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <video controls muted>
+                            <source src="WhatsApp Video 2026-06-09 at 4.20.07 PM.mp4" type="video/mp4">
+                            Tu navegador no soporta videos.
+                        </video>
+                    </div>
+                    <div class="gallery-info"><h4>Prueba de Sensor en Mesa</h4><p>Testeando el código y la pantalla LCD conectada a la placa.</p></div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <video controls muted>
+                            <source src="WhatsApp Video 2026-06-09 at 4.19.59 PM.mp4" type="video/mp4">
+                            Tu navegador no soporta videos.
+                        </video>
+                    </div>
+                    <div class="gallery-info"><h4>Lectura de Humedad Real</h4><p>Prueba en campo: la pantalla detectando los niveles de humedad directamente en el lodo.</p></div>
+                </div>
+
+                <!-- Fotos de Electrónica -->
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="WhatsApp Image 2026-06-09 at 4.20.03 PM (3).jpeg" alt="Cableado a placa LAFVIN">
+                    </div>
+                    <div class="gallery-info"><h4>Conexión al Protoboard</h4><p>Ensamblando el cableado para la lectura de datos mediante LAFVIN.</p></div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="WhatsApp Image 2026-06-09 at 4.20.03 PM.jpeg" alt="Sensor de Humedad">
+                    </div>
+                    <div class="gallery-info"><h4>Módulo de Humedad</h4><p>Sensor listo para medir las condiciones de la tierra en proyectos agrícolas.</p></div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="WhatsApp Image 2026-06-09 at 4.20.05 PM (2).jpeg" alt="Circuito de LEDs">
+                    </div>
+                    <div class="gallery-info"><h4>Circuito de Iluminación</h4><p>Programando secuencias de encendido con LEDs y resistencias.</p></div>
+                </div>
+
+                <!-- Fotos Maqueta Taller -->
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="WhatsApp Image 2026-06-09 at 4.20.05 PM.jpeg" alt="Armando la maqueta">
+                    </div>
+                    <div class="gallery-info"><h4>Ensamblando el Proyecto</h4><p>Ajustando los circuitos internos en el techo de nuestro taller a escala.</p></div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="WhatsApp Image 2026-06-09 at 4.20.04 PM.jpeg" alt="Maqueta Taller Mecánico">
+                    </div>
+                    <div class="gallery-info"><h4>Taller Mecánico Automotriz</h4><p>Resultado final del diorama, integrando autos y electrónica.</p></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CATEGORÍA 2: ECOLOGÍA Y JARDINERÍA -->
+        <div class="gallery-category">
+            <h3 class="category-title">🌱 Cuidado de Áreas Verdes</h3>
+            <div class="gallery-grid">
+                
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="WhatsApp Image 2026-06-09 at 4.20.04 PM (1).jpeg" alt="Jardinera con nuevos brotes">
+                    </div>
+                    <div class="gallery-info"><h4>Nuevos Brotes</h4><p>Nuestra maceta escolar mostrando resultados del trabajo de siembra.</p></div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="WhatsApp Image 2026-06-09 at 4.20.04 PM (2).jpeg" alt="Compañeros frente a la maceta">
+                    </div>
+                    <div class="gallery-info"><h4>Trabajo de Campo</h4><p>Supervisando el crecimiento de nuestra planta en el plantel.</p></div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="WhatsApp Image 2026-06-09 at 4.20.04 PM (3).jpeg" alt="Inspeccionando la planta">
+                    </div>
+                    <div class="gallery-info"><h4>Cuidado Especial</h4><p>Revisando la calidad de la tierra y las hojas de nuestro cultivo.</p></div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="WhatsApp Image 2026-06-09 at 4.20.05 PM (1).jpeg" alt="Cubriendo con hojas secas">
+                    </div>
+                    <div class="gallery-info"><h4>Mantenimiento Natural</h4><p>Utilizando hojas secas de palma para proteger la composta y la humedad.</p></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CATEGORÍA 3: ARTE Y RECICLAJE -->
+        <div class="gallery-category">
+            <h3 class="category-title">🎨 Arte y Reciclaje</h3>
+            <div class="gallery-grid">
+                
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="WhatsApp Image 2026-06-09 at 4.20.06 PM.jpeg" alt="Guerrero Prehispánico">
+                    </div>
+                    <div class="gallery-info"><h4>Orgullo Prehispánico</h4><p>Figura de guerrero bellamente detallada en su caja de exhibición.</p></div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="WhatsApp Image 2026-06-09 at 4.20.07 PM.jpg" alt="Garrafón de Grinch">
+                    </div>
+                    <div class="gallery-info"><h4>Creatividad y Reciclaje</h4><p>Dándole una segunda vida a un garrafón con un toque artístico del Grinch.</p></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CATEGORÍA 4: LA FAMILIA 6D (CONVIVENCIA Y EVENTOS) -->
+        <div class="gallery-category">
+            <h3 class="category-title">📸 La Familia 6D</h3>
+            <div class="gallery-grid">
+                
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="WhatsApp Image 2026-06-09 at 4.20.06 PM (1).jpeg" alt="Selfie grupal de noche">
+                    </div>
+                    <div class="gallery-info"><h4>Noches en el Plantel</h4><p>Disfrutando juntos de las actividades escolares en el turno vespertino.</p></div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <video controls muted>
+                            <source src="WhatsApp Video 2026-06-09 at 4.23.03 PM.mp4" type="video/mp4">
+                            Tu navegador no soporta videos.
+                        </video>
+                    </div>
+                    <div class="gallery-info"><h4>Día de Muertos</h4><p>Conservando nuestras tradiciones, el ambiente festivo nunca falta.</p></div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <video controls muted>
+                            <source src="WhatsApp Video 2026-06-09 at 4.19.56 PM.mp4" type="video/mp4">
+                            Tu navegador no soporta videos.
+                        </video>
+                    </div>
+                    <div class="gallery-info"><h4>Momentos Random</h4><p>Siempre hay tiempo para bromear y pasar un buen rato entre clases.</p></div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="media-container">
+                        <img src="WhatsApp Image 2026-06-09 at 4.20.05 PM (4).jpeg" alt="Descanso en el aula">
+                    </div>
+                    <div class="gallery-info"><h4>Cansancio Acumulado</h4><p>Los proyectos pesan, ¡pero siempre sacamos fuerza para seguir adelante!</p></div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="section" style="padding: 40px 20px; text-align: center;">
+            <h3 style="color: var(--verde-bachilleres);">Colegio de Bachilleres Plantel Cancún 3</h3>
+            <p>Orgullosamente <strong>Generación 6D - Turno Vespertino</strong></p>
+            <p style="font-size: 0.9rem; color: #aaa; margin-top: 15px;">Alfredo V. Bonfil, Quintana Roo | Programado con pasión y TICS</p>
+        </div>
+    </footer>
+
+</body>
+</html>
